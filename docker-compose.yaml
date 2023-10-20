@@ -8,7 +8,7 @@ services:
   django:
     <<: *default-env
     build:
-      context: ./car_salon_activities
+      context: ./django_auth_service
       dockerfile: Dockerfile
     entrypoint:
       - ./django-entrypoint.sh
@@ -45,7 +45,7 @@ services:
       back:
         ipv4_address: 192.168.10.3
     volumes:
-      - ./car_salon_activities/data/postgres:/var/lib/postgresql/data
+      - ./django_auth_service/data/postgres:/var/lib/postgresql/data
     restart: always
 
   rabbitmq:
@@ -64,7 +64,7 @@ services:
       back:
         ipv4_address: 192.168.10.4
     volumes:
-      - ./car_salon_activities/data/rabbitmq:/var/lib/rabbitmq
+      - ./django_auth_service/data/rabbitmq:/var/lib/rabbitmq
     restart: always
 
   redis:
@@ -83,13 +83,13 @@ services:
       back:
         ipv4_address: 192.168.10.5
     volumes:
-      - ./car_salon_activities/data/redis:/root/redis
+      - ./django_auth_service/data/redis:/root/redis
     restart: always
 
   celery:
     <<: *default-env
     build:
-      context: ./car_salon_activities
+      context: ./django_auth_service
       dockerfile: Dockerfile
     entrypoint:
       - ./celery-entrypoint.sh
@@ -118,7 +118,7 @@ services:
   beat:
     <<: *default-env
     build:
-      context: ./car_salon_activities
+      context: ./django_auth_service
       dockerfile: Dockerfile
     entrypoint:
       - ./beat-entrypoint.sh
@@ -147,7 +147,7 @@ services:
   flower:
     <<: *default-env
     build:
-      context: ./car_salon_activities
+      context: ./django_auth_service
       dockerfile: Dockerfile
     entrypoint:
       - ./flower-entrypoint.sh
@@ -174,7 +174,7 @@ services:
 
   sphinx:
     build:
-      context: ./car_salon_activities/
+      context: ./django_auth_service
       dockerfile: Dockerfile-sphinx
     hostname: sphinx
     ports:

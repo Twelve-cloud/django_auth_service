@@ -8,7 +8,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./car_salon_activities
+        working-directory: ./django_auth_service
 
     steps:
       - name: clone github repository

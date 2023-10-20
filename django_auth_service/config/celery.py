@@ -1,5 +1,5 @@
 """
-celery.py: File, containing celery app for an car_salon_activities project.
+celery.py: File, containing celery app for an django_auth_service project.
 """
 
 

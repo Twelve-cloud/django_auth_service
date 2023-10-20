@@ -5,4 +5,4 @@ delete: docker-compose.yaml
 	sudo docker compose down
 
 docs:
-	cd car_salon_activities/docs && make html
+	cd django_auth_service/docs && make html

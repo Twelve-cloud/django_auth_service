@@ -1,5 +1,5 @@
 """
-ASGI config for car_salon_activities project.
+ASGI config for django_auth_service project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
